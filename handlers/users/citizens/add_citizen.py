@@ -4,7 +4,8 @@ import re
 
 from data.config import ADMINS
 from keyboards.default.default_citizen_button import user_panel_default_button
-from loader import dp, bot, db
+from loader import dp
+# from loader import dp, bot, db
 from states.citizen_state import AddUserState
 
 
@@ -65,15 +66,15 @@ async def check_location(message:types.Message, state:FSMContext):
                                            f"📞 Fuqaroning telefon raqami :{data['phone_number']}\n\n"
                                            f"🌐 Fuqaroning turar joy manzili  :{data['address']}\n\n")
 
-    db.add_user(name=data['name'],
-                          age=data['age'],
-                          phone_number=data['phone_number'],
-                          address=data['address'],
-                          location=data['location'])
-
-    await message.answer(text="ma'lumotlaringiz saqlandi",
-                         reply_markup=user_panel_default_button())
-    await state.finish()
+    # db.add_user(name=data['name'],
+    #                       age=data['age'],
+    #                       phone_number=data['phone_number'],
+    #                       address=data['address'],
+    #                       location=data['location'])
+    #
+    # await message.answer(text="ma'lumotlaringiz saqlandi",
+    #                      reply_markup=user_panel_default_button())
+    # await state.finish()
 
 
 

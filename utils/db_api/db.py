@@ -15,7 +15,8 @@ class Database:
                 age integer ,
                 phone_number varchar ,
                 address varchar,
-                location lat)
+                 latitude FLOAT,
+                longitude FLOAT)
         """)
         self.connection.commit()
 

@@ -3,7 +3,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Text
 from aiogram.types import ReplyKeyboardRemove
 
-from keyboards.inline.inline_citizen_button import inline_user_button, delete_user_button, show_users
+from keyboards.inline.inline_citizen_button import inline_user_button, show_users
 from loader import dp, bot
 from states.citizen_state import DeleteUserState, ShowAllUserState
 
