@@ -16,7 +16,7 @@ class Database:
                 phone_number varchar ,
                 address varchar,
                  latitude FLOAT,
-                longitude FLOAT)
+                 longitude FLOAT)
         """)
         self.connection.commit()
 
@@ -44,6 +44,8 @@ class Database:
             delete from user where id=?
         """, (id,))
         self.connection.commit()
+
+
 
 
 
