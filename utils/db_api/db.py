@@ -15,10 +15,9 @@ class Database:
                 age integer ,
                 phone_number varchar ,
                 address varchar,
-                location varchar            )
+                location lat)
         """)
         self.connection.commit()
-
 
     def add_user(self, name, age, phone_number, address, location):
         self.cursor.execute("""

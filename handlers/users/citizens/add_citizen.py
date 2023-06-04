@@ -49,13 +49,14 @@ async def add_address(message: types.Message, state: FSMContext):
         data['address'] = message.text
 
     await AddUserState.next()
-    await message.answer("💧 GES   <em>qurmoqchi bo'lgan manzilingizning locatsiyasini kiriting</em>")
+    await message.answer("💧 GES <em>qurmoqchi bo'lgan manzilingizning locatsiyasini kiriting</em>")
+
 
 
 @dp.message_handler(state=AddUserState.location)
 async def check_location(message:types.Message, state:FSMContext):
     async with state.proxy() as data:
-        data['location'] = message.text
+        data['location'] = message.location
     await bot.send_message(chat_id=ADMINS[0],
                            text=
                                 f"Fuqaroning <b>GES</b> qurmoqchi bo'lan manzil locatsiyasi : {data['location']}\n\n"

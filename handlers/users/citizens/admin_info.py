@@ -3,17 +3,10 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Text
 from aiogram.types import ReplyKeyboardRemove
 
-from keyboards.default.default_citizen_button import user_panel_default_button
 from keyboards.inline.inline_citizen_button import inline_user_button, delete_user_button, show_users
 from loader import dp, bot
 from states.citizen_state import DeleteUserState, ShowAllUserState
 
-
-@dp.message_handler(Text(equals="orqaga qaytish"),  state="*")
-async def get_cancel_back(message: types.Message, state: FSMContext):
-    await bot.send_message(chat_id=message.chat.id,text="Bekor qilindi",
-                         reply_markup=user_panel_default_button())
-    await state.finish()
 
 
 @dp.message_handler(Text(equals="👥 Fuqarolar"))
@@ -43,7 +36,9 @@ async def user_callback(callback: types.CallbackQuery):
         await callback.message.answer(text="<b>Ro'yxatdan o'tgan foydalanuvchilar</b>",
                                       reply_markup=show_users())
         await ShowAllUserState.id.set()
-
+    elif callback.data == 'cancel':
+        await callback.message.answer_photo(photo="https://www.atf.gov/sites/default/files/media/2015/08/people.jpg",
+                                            reply_markup=inline_user_button())
 
 
 

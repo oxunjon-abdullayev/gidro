@@ -15,7 +15,7 @@ def user_rkm() -> ReplyKeyboardMarkup:
 def cancel_back() :
     rkm = ReplyKeyboardMarkup(resize_keyboard=True,
                               one_time_keyboard=True)
-    button = KeyboardButton(text="orqaga qaytish")
+    button = KeyboardButton(text="cancel")
     rkm.add(button)
     return rkm
 

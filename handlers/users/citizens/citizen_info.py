@@ -1,15 +1,20 @@
 from aiogram import types
+from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Text
+from aiogram.types import ReplyKeyboardRemove
 
-from keyboards.default.default_citizen_button import cancel_back
-from loader import dp
+from keyboards.default.default_citizen_button import cancel_back, user_panel_default_button
+from loader import dp, bot
 from states.citizen_state import AddUserState
+
+
+
 
 
 @dp.message_handler(Text(equals="✅ Ro'yxatdan o'tish"))
 async def registr_func(message:types.Message):
     await message.answer(text="<b>Xurmatli fuqaro ismingizni kiriting </b>",
-                         reply_markup=cancel_back())
+                         reply_markup=ReplyKeyboardRemove())
     await AddUserState.name.set()
 
 

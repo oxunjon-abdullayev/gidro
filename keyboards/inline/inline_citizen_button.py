@@ -6,8 +6,9 @@ from loader import db
 def inline_user_button():
     ikm = InlineKeyboardMarkup(row_width=1)
     button2 = InlineKeyboardButton(text="✅ Ro'yxatdan o'tgan foydalanuvchilar", callback_data="all_user")
-    button5 = InlineKeyboardButton(text="✅ Ro'yxatdan biror bir fuqaroni o'chirish", callback_data="delete_user")
-    ikm.add(button2, button5)
+    button4 = InlineKeyboardButton(text="✅ Ro'yxatdan biror bir fuqaroni o'chirish", callback_data="delete_user")
+    button5 = InlineKeyboardButton(text="✅ Ortga qaytish", callback_data="cancel")
+    ikm.add(button2,button4,   button5)
     return ikm
 
 
@@ -20,7 +21,7 @@ def confirm():
 
 
 def show_users():
-    ikm = InlineKeyboardMarkup()
+    ikm = InlineKeyboardMarkup(row_width=2)
     for i in db.all_user():
         button = InlineKeyboardButton(text=f"{i[1]}",callback_data=f"{i[0]}")
         ikm.add(button)
