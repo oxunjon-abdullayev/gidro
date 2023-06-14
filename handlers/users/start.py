@@ -8,7 +8,7 @@ from loader import dp
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
 
-    if message.from_user.id == 1295742159:
+    if message.from_user.id == 1295742159 :
         await message.answer(text=f"Admin xush kelibsiz !",
                              reply_markup=user_rkm())
     else:
