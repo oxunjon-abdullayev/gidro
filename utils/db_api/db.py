@@ -20,10 +20,10 @@ class Database:
         """)
         self.connection.commit()
 
-    def add_user(self, name, age, phone_number, address, location):
+    def add_user(self, name, age, phone_number, address, latitude,longitude):
         self.cursor.execute("""
-            insert into user (name, age, phone_number, address, location) values (?, ?, ?, ?, ?)
-        """, (name, age, phone_number, address, location))
+            insert into user (name, age, phone_number, address, latitude,longitude) values (?, ?, ?, ?, ?,?)
+        """, (name, age, phone_number, address, latitude,longitude))
         self.connection.commit()
 
     def all_user(self):

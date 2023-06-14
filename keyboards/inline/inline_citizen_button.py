@@ -1,6 +1,7 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # from loader import db
+from loader import db
 
 
 def inline_user_button():
@@ -31,13 +32,12 @@ def show_users():
     return ikm
 
 
-
-# def delete_user_button():
-#     ikm = InlineKeyboardMarkup()
-#     for i in db.all_user():
-#         button = InlineKeyboardButton(text=f"ID : {i[0]}                      Ismi : {i[1]}",callback_data=f"{i[0]}")
-#         ikm.add(button)
-#     return ikm
+def delete_user_button():
+    ikm = InlineKeyboardMarkup()
+    for i in db.all_user():
+        button = InlineKeyboardButton(text=f"ID : {i[0]}                      Ismi : {i[1]}",callback_data=f"{i[0]}")
+        ikm.add(button)
+    return ikm
 
 
 

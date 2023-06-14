@@ -46,3 +46,13 @@ def user_panel_default_button():
    btn3=KeyboardButton(text="📍 Bizning manzil")
    rkm.add(btn1,btn2,btn3)
    return rkm
+
+
+
+def user_location():
+    rkm = ReplyKeyboardMarkup(resize_keyboard=True)
+    btn = KeyboardButton("📍 locatsiya", request_location=True)
+    rkm.add(btn)
+    return rkm
+
+

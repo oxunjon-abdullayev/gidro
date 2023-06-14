@@ -1,10 +1,10 @@
 from aiogram import types
-from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Text
 from aiogram.types import ReplyKeyboardRemove
 
-from keyboards.inline.inline_citizen_button import inline_user_button, show_users
-from loader import dp, bot
+from keyboards.default.default_citizen_button import  ortga_qaytish
+from keyboards.inline.inline_citizen_button import inline_user_button, show_users, delete_user_button
+from loader import dp
 from states.citizen_state import DeleteUserState, ShowAllUserState
 
 
@@ -29,7 +29,8 @@ async def user_callback(callback: types.CallbackQuery):
 
                                       reply_markup=delete_user_button())
         await callback.message.answer(text=f"<b><i>👤 Qaysi id ga tegishli "
-                                      "fuqaroni o'chirmoqchisiz ❓\n\n🆔 raqamni kiriting :</i></b>")
+                                      "fuqaroni o'chirmoqchisiz ❓\n\n🆔 raqamni kiriting :</i></b>",
+                                      reply_markup=ortga_qaytish())
         await DeleteUserState.id.set()
 
     elif callback.data == "all_user":
