@@ -18,11 +18,16 @@ async def bot_start(message: types.Message):
 
 
 
+
+
+
+
+
 # @dp.message_handler(CommandStart(),IsAdmin())
 # async def bot_start(message: types.Message):
 #     await message.answer(text=f"Admin xush kelibsiz !",
 #                              reply_markup=user_rkm())
-
+#
 # @dp.message_handler(CommandStart())
 # async def bot_user_start(message:types.Message):
 #         await message.answer(f"Salom, {message.from_user.full_name}!",
